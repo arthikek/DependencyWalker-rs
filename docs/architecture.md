@@ -41,14 +41,14 @@ The backend logic is divided into discrete modules, each responsible for specifi
 - Provide the raw binary data to the PE Parser Module.
 
 #### 3.1.2 Interfaces
-- `open_file(path: &str) -> Result<File, Error>`
+- `open_file(path: &str) -> Option<File>`
     - Opens the specified file and returns a file handle.
 
-- `read_bytes(file: &mut File, offset: u64, length: usize) -> Result<Vec<u8>, Error>`
+- `read_bytes(file: &mut File, offset: u64, length: usize) -> Option<Vec<u8>, Error>`
     - Reads a specified number of bytes from the file at the given offset.
 
 #### 3.1.3 Error Handling
-- If the file cannot be opened or read, an `Error::FileNotFound` or `Error::ReadError` is returned to the Error Handling Module.
+- All the errors are handled in the file importer.
 
 ### 3.2 PE Parser Module
 

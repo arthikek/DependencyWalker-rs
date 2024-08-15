@@ -1,38 +1,45 @@
 use std::fs::File;
-use std::io::{Error, ErrorKind};
+use std::io::{ErrorKind, Read, Result};
 
-struct FileImporter {
-    file: Option<File>,
-}
+pub struct FileImporter {}
 
 impl FileImporter {
-    // Method to open a file and store it in the `file` field
-    fn openfile(&mut self, path: &str) -> Result<(), Error> {
+    pub fn open_file(path: &str) -> Option<File> {
         match File::open(path) {
             Ok(file) => {
-                println!(
-                    "File at path: {} opened successfully with size: {} bytes",
-                    path,
-                    file.metadata()?.len()
-                );
-                self.file = Some(file); // Store the opened file in the struct
-                Ok(())
+                let file_size = file.metadata().ok().map(|meta| meta.len());
+
+                if let Some(length) = file_size {
+                    println!("The file has been parsed and has a length of {}", length);
+                } else {
+                    println!("The file has been parsed, but there is no metadata available");
+                }
+
+                Some(file)
             }
             Err(e) => {
                 match e.kind() {
-                    ErrorKind::NotFound => {
-                        println!("Error: File not found");
-                    }
-                    ErrorKind::PermissionDenied => {
-                        println!("Error: Permission denied");
-                    }
-                    _ => {
-                        println!("Error: {:?}", e);
-                    }
+                    ErrorKind::NotFound => println!("Error: File not found"),
+                    ErrorKind::PermissionDenied => println!("Error: Permission denied"),
+                    _ => println!("Error: {:?}", e),
                 }
-                Err(e) // Propagate the error
+                None
             }
         }
     }
-}
+    fn read_dos_header(file: &mut File, offset:u64, length : usize) -> Option<[u8; 64]>{
+        let mut buffer = [0u8; 64];
 
+        match file.read_exact(&mut buffer){
+            Ok(..) => {
+                 Some(buffer)
+            }
+            Err(..) => {
+                None
+            }
+        }
+
+    }
+
+
+}
