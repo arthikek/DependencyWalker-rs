@@ -10,7 +10,15 @@ pub struct OptionalHeader {
 }
 
 impl OptionalHeader {
-    pub fn new(magic_number: Word, optional_header_standard_fields: OptionalHeadersStandardFields, optional_headers_windows_specific_fields: OptionalHeadersWindowsSpecificFields) -> Self {
-        Self { magic_number, optional_header_standard_fields, optional_headers_windows_specific_fields }
+    pub fn new(
+        magic_number: Word,
+        optional_header_standard_fields: OptionalHeadersStandardFields,
+        optional_headers_windows_specific_fields: OptionalHeadersWindowsSpecificFields,
+    ) -> Self {
+        Self {
+            magic_number,
+            optional_header_standard_fields,
+            optional_headers_windows_specific_fields,
+        }
     }
 }

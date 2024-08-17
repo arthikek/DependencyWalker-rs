@@ -1,22 +1,18 @@
+use crate::dto::dos_header::DosHeader;
 use std::fs::File;
 use std::io;
 use std::io::Read;
-use crate::dto::dos_header::DosHeader;
 
 use crate::parser::pe_mapper::Mapper;
 
-
 pub struct Parser {
- map : Mapper,
+    map: Mapper,
 }
 
 impl Parser {
-
-    pub fn new() -> Self{
+    pub fn new() -> Self {
         let map = Mapper::new();
-        Self{
-            map
-        }
+        Self { map }
     }
 
     pub fn parse_dos_header(file: &mut File) -> io::Result<DosHeader> {
@@ -61,6 +57,4 @@ impl Parser {
             dos_header_buffer[60..64].try_into().unwrap(), // e_lfanew
         ))
     }
-
 }
-
