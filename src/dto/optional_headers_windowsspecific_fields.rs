@@ -1,6 +1,5 @@
-use crate::enums::dword::DWord;
+use crate::{DWord, Word};
 use crate::enums::size_base::SizeBase;
-use crate::enums::word::Word;
 
 #[derive(Clone, Debug)]
 pub struct OptionalHeadersWindowsSpecificFields {

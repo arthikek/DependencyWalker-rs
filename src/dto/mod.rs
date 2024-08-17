@@ -9,3 +9,4 @@ pub mod optional_header_data_directories;
 pub mod optional_headers_windowsspecific_fields;
 pub mod section_header;
 pub mod fieldsoffset;
+pub mod data_directory_base;

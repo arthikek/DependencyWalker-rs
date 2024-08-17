@@ -1,4 +1,4 @@
-use crate::enums::dword::DWord;
+use crate::DWord;
 
 pub struct DataDirectoryBase {
     virtual_address: DWord,

@@ -9,6 +9,12 @@ mod ui;
 
 slint::slint! { import { MainWindow } from "src/ui/main.slint"; }
 
+type HalfWord=[u8;1];
+type Word =[u8;2];
+type DWord=[u8;4];
+type QWord=[u8;8];
+
+
 fn main() {
     let main_window = MainWindow::new().unwrap();
     main_window.run().expect("TODO: panic message");

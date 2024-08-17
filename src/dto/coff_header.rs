@@ -1,5 +1,4 @@
-use crate::enums::dword::DWord;
-use crate::enums::word::Word;
+use crate::{DWord, Word};
 
 #[derive(Clone, Debug)]
 pub struct CoffHeader {

@@ -1,4 +1,4 @@
-use crate::enums::data_directory_base::DataDirectoryBase;
+use crate::dto::data_directory_base::DataDirectoryBase;
 
 pub struct OptionalHeaderDataDirectories {
     export_table: Option<DataDirectoryBase>,

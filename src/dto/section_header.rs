@@ -1,6 +1,4 @@
-use crate::enums::dword::DWord;
-use crate::enums::q_word::QWord;
-use crate::enums::word::Word;
+use crate::{DWord, QWord, Word};
 
 #[derive(Debug, Clone)]
 pub struct SectionHeader {

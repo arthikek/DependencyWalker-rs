@@ -1,6 +1,6 @@
 use crate::dto::optional_headers_standard_fields::OptionalHeadersStandardFields;
 use crate::dto::optional_headers_windowsspecific_fields::OptionalHeadersWindowsSpecificFields;
-use crate::enums::word::Word;
+use crate::Word;
 
 #[derive(Clone, Debug)]
 pub struct OptionalHeader {

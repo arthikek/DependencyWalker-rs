@@ -1,6 +1,4 @@
-use crate::enums::dword::DWord;
-use crate::enums::half_word::HalfWord;
-use crate::enums::word::Word;
+use crate::{DWord, HalfWord, Word};
 
 #[derive(Clone, Debug)]
 pub struct OptionalHeadersStandardFields {
