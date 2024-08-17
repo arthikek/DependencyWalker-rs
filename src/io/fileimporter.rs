@@ -27,19 +27,12 @@ impl FileImporter {
             }
         }
     }
-    fn read_dos_header(file: &mut File, offset:u64, length : usize) -> Option<[u8; 64]>{
+    fn read_dos_header(file: &mut File, offset: u64, length: usize) -> Option<[u8; 64]> {
         let mut buffer = [0u8; 64];
 
-        match file.read_exact(&mut buffer){
-            Ok(..) => {
-                 Some(buffer)
-            }
-            Err(..) => {
-                None
-            }
+        match file.read_exact(&mut buffer) {
+            Ok(..) => Some(buffer),
+            Err(..) => None,
         }
-
     }
-
-
 }

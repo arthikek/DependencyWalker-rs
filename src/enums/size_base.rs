@@ -2,6 +2,7 @@
 /// The PE format has two variants: PE32 and PE32+.
 /// - In PE32, some fields are 32-bit (Double Word or DWord).
 /// - In PE32+, those same fields might be 64-bit (Quad Word or QWord).
+#[derive(Clone, Debug)]
 pub enum SizeBase {
     /// DWord (Double Word) represents a 32-bit field.
     /// This is used in the PE32 format.
